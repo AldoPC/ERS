@@ -1,9 +1,8 @@
 public class Marea extends Magician{
 
 	public Marea(){
-    //String name, int level, int hp, int attack,int defense,
-    //int energy, int speed, int magic
-		super("Marea",1,10,5,2,20,5,13);
+    //    String name, int level, int hp, int attack,int defense,int energy, int speed, int magic
+		super("Marea",     1,         10,     5,         2,          20,         5,         13);
 		Abilities[] abilities= new Abilities[3];
 		Objects[] inventory= new Objects[3];
 		abilities[0]= new Abilities("Very Strong punch",20);

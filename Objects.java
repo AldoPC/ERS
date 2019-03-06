@@ -22,4 +22,5 @@ public class Objects{
 	public int getPoints(){
 		return points;
 	}
+
 }
