@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
 public class Player{
-	
+
 	private String name;
-  private int level;
+  	private int level;
 	private int hp;
-  private int attack;
-  private int defense;
+	private int attack;
+  	private int defense;
 	private int energy;
 	private int speed;
 	private int magic;
@@ -15,14 +15,15 @@ public class Player{
 
 	public Player(String name, int level, int hp, int attack,int defense,
                    int energy, int speed, int magic){
+
 		this.name=name;
-    this.level=level;
+		this.level=level;
 		this.hp=hp;
 		this.attack=attack;
 		this.defense=defense;
-    this.energy=energy;
-    this.speed=speed;
-    this.magic=magic;
+    	this.energy=energy;
+    	this.speed=speed;
+    	this.magic=magic;
 	}
 
 	public void setName(String name){
@@ -147,44 +148,52 @@ public class Player{
 		return result;
 	}
 
+	public int chooseEnemy(Player[] defender) {
+		System.out.println("CHOOSE A CHARACTER ???????");
+		System.out.println("1) Attack " + defender[0].getName());
+		System.out.println("2) Attack " + defender[1].getName());
+		System.out.println("3) Attack " + defender[2].getName());
+		Scanner sc = new Scanner(System.in);
+		return (sc.nextInt()-1);
+	}
+
 	public void attack(Player defender) {
 		int damage = Math.max(0, attack - defender.getDefense());
-		int hp = defender.getHp() - damage;
+		int hp =  Math.max(0, defender.getHp() - damage);
 		System.out.println(name + "'s attack does " + damage + " damage!");
 		System.out.println(defender.getName() + "'s Health:"+ hp);
 		defender.setHp(hp);
 	}
 
-	public void useAbilities(Player defender){
+	public void attack(Player[] defender) {
+		int value= (int)(Math.random() * ((2) + 1));
+		int damage = Math.max(0, attack - defender[value].getDefense());
+		int hp = defender[value].getHp() - damage;
+		System.out.println(name + "'s attack does " + damage + " damage!");
+		System.out.println(defender[value].getName() + "'s Health:"+ hp);
+		defender[value].setHp(hp);
+	}
+
+	public int useAbilities(){
 		System.out.println(printAbilities());
 		System.out.println("Ability 1");
 		System.out.println("Ability 2");
 		System.out.println("Ability 3");
 		Scanner sc = new Scanner(System.in);
-		int answer = sc.nextInt();
-			switch (answer){
-				case 1:
-					attack(defender, 0);
-					break;
-				case 2:
-					attack(defender, 1);
-					break;
-				case 3:
-					attack(defender, 2);
-					break;
-      }
+		return (sc.nextInt()-1);
 	}
 
 	public void attack(Player defender, int i) {
 		int damage = Math.max(0, abilities[i].getPuntosEspeciales() - defender.getDefense());
-		int hp = defender.getHp() - damage;
+		int hp = Math.max(0, defender.getHp() - damage);
 		System.out.println(name+" used "+abilities[i].getName());
 		System.out.println(name + "'s attack does " + damage + " damage!");
 		System.out.println(defender.getName() + "'s Health:"+ hp);
 		defender.setHp(hp);
 	}
 
-	public void useItem(Player you){
+	public void useItem(Player[] you){
+		int choosed;
 		System.out.println(printObjects());
 		System.out.println("Object 1");
 		System.out.println("Object 2");
@@ -192,7 +201,8 @@ public class Player{
 		Scanner sc = new Scanner(System.in);
 			switch (sc.nextInt()){
 				case 1:
-					usePotion(you);
+					choosed = chooseEnemy(you);
+					usePotion(you, choosed);
 					break;
 				case 2:
 
@@ -203,9 +213,9 @@ public class Player{
 			}
 	}
 
-	public void usePotion(Player you){
-		int hp = you.getHp() + you.inventory[0].getPoints();
-		you.setHp(hp);
+	public void usePotion(Player[] you, int i){
+		int hp = you[i].getHp() + you[i].inventory[0].getPoints();
+		you[i].setHp(hp);
 		System.out.println(name +"s health has increased to " + hp);
 	}
 

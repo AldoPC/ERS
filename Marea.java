@@ -13,7 +13,7 @@ public class Marea extends Magician{
 		inventory [1]= new Objects("Strength Potion", 3);
 		inventory [2]= new Objects("Health Big Potion", 10);
 		super.addObjects(inventory);
-
+		
 	}
 
 }
