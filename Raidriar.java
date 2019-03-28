@@ -1,4 +1,4 @@
-public class Raidriar extends Magician{
+public class Raidriar extends Enemy{
 
 	public Raidriar(){
     //  String name, int level, int hp, int attack, int defense, int energy, int speed, int magic
@@ -9,6 +9,14 @@ public class Raidriar extends Magician{
 		abilities[2]= new Abilities("Raidiance",25);
 		super.setAbilities(abilities);
 
+	}
+
+	public void attack(Player defender){
+		int damage = Math.max(0, 100);
+		int hp =  Math.max(0, defender.getHp() - damage);
+		System.out.println(name + "'s attack does " + damage + " damage!");
+		System.out.println(defender.getName() + "'s Health:"+ hp);
+		defender.setHp(hp);
 	}
 
 }

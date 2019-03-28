@@ -16,4 +16,14 @@ public class Marea extends Magician{
 		
 	}
 
+	@Override
+	public void attack(Enemy defender) {
+		System.out.println("Magic Attack!!");
+		int damage = Math.max(0, attack - defender.getDefense());
+		int hp =  Math.max(0, defender.getHp() - damage);
+		System.out.println(name + "'s attack does " + damage + " damage!");
+		System.out.println(defender.getName() + "'s Health:"+ hp);
+		defender.setHp(hp);
+	}
+
 }

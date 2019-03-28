@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Battle{
 
-  public static void duel(Player you[], Player enemy[]) {
+  public static void duel(Player you[], Enemy enemy[]) {
 	  int yourSpeed = you[0].getSpeed() + you[1].getSpeed() + you[2].getSpeed();
 	  int enemySpeed = enemy[0].getSpeed() + enemy[1].getSpeed() + enemy[2].getSpeed();
 	  int fighters = 0;
@@ -30,7 +30,7 @@ public class Battle{
 	  System.out.println("Choose your character");
 
 
-	  while (Party.teamIsAlive(you) && Party.teamIsAlive(enemy)) {
+	  while (Party.teamIsAlive(you) && Enemy.teamIsAlive(enemy)) {
 
 		  for (int y = 0; y < 3; y++) {
 		      if (you[y].isAlive() && you[y] != null) {
@@ -86,14 +86,14 @@ public class Battle{
                 }
             }
 		  }
-
-      turn = !turn;
+		  turn = !turn;
+		  System.out.println(Enemy.teamIsAlive(enemy));
 
 	  }
 
     if (Party.teamIsAlive(you)){
       System.out.println("You win!");
-    } else if (Party.teamIsAlive(enemy)){
+    } else if (Enemy.teamIsAlive(enemy)){
       System.out.println("You lose!");
     } else {
       System.out.println("Draw!");

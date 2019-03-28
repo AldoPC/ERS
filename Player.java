@@ -1,15 +1,15 @@
 import java.util.Scanner;
 
-public class Player{
+public class Player implements CharacterInterface{
 
-	private String name;
-  	private int level;
-	private int hp;
-	private int attack;
-  	private int defense;
-	private int energy;
-	private int speed;
-	private int magic;
+	public String name;
+	public int level;
+	public int hp;
+	public int attack;
+	public int defense;
+	public int energy;
+	public int speed;
+	public int magic;
 	public Abilities[] abilities;
 	public Objects[] inventory;
 
@@ -148,7 +148,7 @@ public class Player{
 		return result;
 	}
 
-	public int chooseEnemy(Player[] defender) {
+	public int chooseEnemy(Enemy[] defender) {
 		System.out.println("CHOOSE A CHARACTER ???????");
 		System.out.println("1) Attack " + defender[0].getName());
 		System.out.println("2) Attack " + defender[1].getName());
@@ -157,7 +157,16 @@ public class Player{
 		return (sc.nextInt()-1);
 	}
 
-	public void attack(Player defender) {
+	public int chooseAlly(Player[] defender) {
+		System.out.println("CHOOSE A CHARACTER ???????");
+		System.out.println("1) Attack " + defender[0].getName());
+		System.out.println("2) Attack " + defender[1].getName());
+		System.out.println("3) Attack " + defender[2].getName());
+		Scanner sc = new Scanner(System.in);
+		return (sc.nextInt()-1);
+	}
+
+	public void attack(Enemy defender) {
 		int damage = Math.max(0, attack - defender.getDefense());
 		int hp =  Math.max(0, defender.getHp() - damage);
 		System.out.println(name + "'s attack does " + damage + " damage!");
@@ -165,7 +174,7 @@ public class Player{
 		defender.setHp(hp);
 	}
 
-	public void attack(Player[] defender) {
+	public void attack(Enemy[] defender) {
 		int value= (int)(Math.random() * ((2) + 1));
 		int damage = Math.max(0, attack - defender[value].getDefense());
 		int hp = defender[value].getHp() - damage;
@@ -183,7 +192,7 @@ public class Player{
 		return (sc.nextInt()-1);
 	}
 
-	public void attack(Player defender, int i) {
+	public void attack(Enemy defender, int i) {
 		int damage = Math.max(0, abilities[i].getPuntosEspeciales() - defender.getDefense());
 		int hp = Math.max(0, defender.getHp() - damage);
 		System.out.println(name+" used "+abilities[i].getName());
@@ -201,7 +210,7 @@ public class Player{
 		Scanner sc = new Scanner(System.in);
 			switch (sc.nextInt()){
 				case 1:
-					choosed = chooseEnemy(you);
+					choosed = chooseAlly(you);
 					usePotion(you, choosed);
 					break;
 				case 2:
