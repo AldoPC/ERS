@@ -5,6 +5,7 @@ public class Magician extends Player {
                      int energy, int speed, int magic){
       super(name,level,hp,attack,defense,energy,speed,magic);
       abilities= new Abilities[3];
+      abilities[0]= new Abilities("Magic Attack",20);
     }
 
 

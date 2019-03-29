@@ -11,7 +11,8 @@ public class Player implements CharacterInterface{
 	public int speed;
 	public int magic;
 	public Abilities[] abilities;
-	public Objects[] inventory;
+	public static Objects[] inventory;
+
 
 	public Player(String name, int level, int hp, int attack,int defense,
                    int energy, int speed, int magic){
@@ -100,6 +101,37 @@ public class Player implements CharacterInterface{
            " Energy: "+energy+" Speed: "+speed+" Magic: "+magic;
 	}
 
+	public Objects[] getObjects(){
+		return inventory;
+	}
+
+	public Objects getOneObject(int i){
+		return inventory[i];
+	}
+
+	public void addObjects(Objects[] inventory){
+		this.inventory = inventory;
+	}
+
+	public void removeObjects(int index){
+		inventory[index]=null;
+	}
+
+	public String printObjects(){
+		String result="inventory: [";
+		for(int i=0;i<inventory.length;i++){
+			if(inventory[i]!=null){
+				result= result+" Object: "
+						+inventory[i].getName()
+						+" points: "+ inventory[i].getPoints()+",";
+			}else{
+				result= result+" Vacio ,";
+			}
+		}
+		result= result+"]";
+		return result;
+	}
+
 	public Abilities[] getAbilities(){
 		return abilities;
 	}
@@ -121,32 +153,7 @@ public class Player implements CharacterInterface{
 		return result;
 	}
 
-	public Objects[] getObjects(){
-		return inventory;
-	}
 
-	public void addObjects(Objects[] inventory){
-		this.inventory= inventory;
-	}
-
-	public void removeObjects(int index){
-		inventory[index]=null;
-	}
-
-	public String printObjects(){
-		String result="inventory: [";
-		for(int i=0;i<inventory.length;i++){
-			if(inventory[i]!=null){
-			result= result+" Object: "
-				+inventory[i].getName()
-				+" points: "+ inventory[i].getPoints()+",";
-			}else{
-				result= result+" Vacio ,";
-			}
-		}
-		result= result+"]";
-		return result;
-	}
 
 	public int chooseEnemy(Enemy[] defender) {
 		System.out.println("CHOOSE A CHARACTER ???????");

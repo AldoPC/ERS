@@ -11,7 +11,6 @@ public class Enemy {
     public int speed;
     public int magic;
     public Abilities[] abilities;
-    public Objects[] inventory;
 
     public Enemy(String name, int level, int hp, int attack,int defense,
                   int energy, int speed, int magic){
@@ -121,33 +120,6 @@ public class Enemy {
         return result;
     }
 
-    public Objects[] getObjects(){
-        return inventory;
-    }
-
-    public void addObjects(Objects[] inventory){
-        this.inventory= inventory;
-    }
-
-    public void removeObjects(int index){
-        inventory[index]=null;
-    }
-
-    public String printObjects(){
-        String result="inventory: [";
-        for(int i=0;i<inventory.length;i++){
-            if(inventory[i]!=null){
-                result= result+" Object: "
-                        +inventory[i].getName()
-                        +" points: "+ inventory[i].getPoints()+",";
-            }else{
-                result= result+" Vacio ,";
-            }
-        }
-        result= result+"]";
-        return result;
-    }
-
     public int chooseEnemy(Player[] defender) {
         System.out.println("CHOOSE A CHARACTER ???????");
         System.out.println("1) Attack " + defender[0].getName());
@@ -186,33 +158,6 @@ public class Enemy {
         System.out.println(name + "'s attack does " + damage + " damage!");
         System.out.println(defender.getName() + "'s Health:"+ hp);
         defender.setHp(hp);
-    }
-
-    public void useItem(Player[] you){
-        int choosed;
-        System.out.println(printObjects());
-        System.out.println("Object 1");
-        System.out.println("Object 2");
-        System.out.println("Object 3");
-        Scanner sc = new Scanner(System.in);
-        switch (sc.nextInt()){
-            case 1:
-                choosed = chooseEnemy(you);
-                usePotion(you, choosed);
-                break;
-            case 2:
-
-                break;
-            case 3:
-
-                break;
-        }
-    }
-
-    public void usePotion(Player[] you, int i){
-        int hp = you[i].getHp() + you[i].inventory[0].getPoints();
-        you[i].setHp(hp);
-        System.out.println(name +"s health has increased to " + hp);
     }
 
     public static boolean teamIsAlive(Enemy player[]) {

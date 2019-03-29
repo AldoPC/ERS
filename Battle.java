@@ -87,7 +87,6 @@ public class Battle{
             }
 		  }
 		  turn = !turn;
-		  System.out.println(Enemy.teamIsAlive(enemy));
 
 	  }
 

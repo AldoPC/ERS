@@ -11,12 +11,19 @@ public class Raidriar extends Enemy{
 
 	}
 
-	public void attack(Player defender){
-		int damage = Math.max(0, 100);
-		int hp =  Math.max(0, defender.getHp() - damage);
-		System.out.println(name + "'s attack does " + damage + " damage!");
-		System.out.println(defender.getName() + "'s Health:"+ hp);
-		defender.setHp(hp);
+	@Override
+	public void attack(Player[] defender) {
+		System.out.println("R!!");
+		int value= (int)(Math.random() * ((2) + 1));
+		if(defender[value].isAlive()){
+			int damage = Math.max(0, attack - defender[value].getDefense());
+			int hp = Math.max(0,defender[value].getHp() - damage);
+			System.out.println(name + "'s attack does " + damage + " damage!");
+			System.out.println(defender[value].getName() + "'s Health:"+ hp);
+			defender[value].setHp(hp);
+		}else{
+			attack(defender);
+		}
 	}
 
 }
