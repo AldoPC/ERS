@@ -18,8 +18,8 @@ public class Mapa extends VBox{
 		}	
 		getChildren().add(label);
 		getChildren().add(grid);
-		casillas[0][0].setCaballeroDeBronce(main.getCaballeroDeBronce());
-		casillas[7][4].setCaballeroDeOro(new CaballeroDeOro("Mu",40,20,15,10));
+		casillas[0][0].setPersonajePrincipal(main.getPersonajePrincipal());
+		casillas[7][4].setEnemy(new Enemy("Mu",40,20,15,10));
 		pintarMapa();
 	}
 

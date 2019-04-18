@@ -22,25 +22,25 @@ public class MainGameScene extends Scene{
             public void handle(KeyEvent event) {
 
         
-                Player cb= main.getPlayer();
-                m.getCasillas()[cb.getX()][cb.getY()].setMainPlayer1(null);
+                Player personajePrincipal= main.getPlayer();
+                m.getCasillas()[personajePrincipal.getX()][personajePrincipal.getY()].setPersonajePrincipal(null);
                 try{
                     switch (event.getCode()) {
                         case UP:  
-                            m.getCasillas()[cb.getX()][cb.getY()-1].getMainPlayer1();
-                            cb.setY(cb.getY()-1);  
+                            m.getCasillas()[personajePrincipal.getX()][personajePrincipal.getY()-1].getPersonajePrincipal();
+                            personajePrincipal.setY(personajePrincipal.getY()-1);  
                             break;
                         case DOWN: 
-                            m.getCasillas()[cb.getX()][cb.getY()+1].getMainPlayer1();
-                            cb.setY(cb.getY()+1);
+                            m.getCasillas()[personajePrincipal.getX()][personajePrincipal.getY()+1].getPersonajePrincipal();
+                            personajePrincipal.setY(personajePrincipal.getY()+1);
                             break;
                         case LEFT:
-                            m.getCasillas()[cb.getX()-1][cb.getY()].getMainPlayer1(); 
-                            cb.setX(cb.getX()-1); 
+                            m.getCasillas()[personajePrincipal.getX()-1][personajePrincipal.getY()].getPersonajePrincipal(); 
+                            personajePrincipal.setX(personajePrincipal.getX()-1); 
                             break;
                         case RIGHT:
-                            m.getCasillas()[cb.getX()+1][cb.getY()].getMainPlayer1();
-                            cb.setX(cb.getX()+1); 
+                            m.getCasillas()[personajePrincipal.getX()+1][personajePrincipal.getY()].getPersonajePrincipal();
+                            personajePrincipal.setX(personajePrincipal.getX()+1); 
                             break;  
                     }
                 }catch(ArrayIndexOutOfBoundsException e){
@@ -48,13 +48,13 @@ public class MainGameScene extends Scene{
                 }
                 
 
-                checarCasilla(m.getCasillas()[cb.getX()][cb.getY()]);
-                m.getCasillas()[cb.getX()][cb.getY()].setMainPlayer1(cb);
+                checarCasilla(m.getCasillas()[personajePrincipal.getX()][personajePrincipal.getY()]);
+                m.getCasillas()[personajePrincipal.getX()][personajePrincipal.getY()].setPersonajePrincipal(personajePrincipal);
 
-                if(cb.getX()==m.getCasillas().length-1&&cb.getY()==m.getCasillas()[0].length-1){
+                if(personajePrincipal.getX()==m.getCasillas().length-1&&personajePrincipal.getY()==m.getCasillas()[0].length-1){
                 	gridPane.getChildren().remove(m);
-                	cb.setX(0);
-                	cb.setY(0);
+                	personajePrincipal.setX(0);
+                	personajePrincipal.setY(0);
                 	m= m.getNextMap();
                 	gridPane.add(m,0,1);
                 }
@@ -65,6 +65,11 @@ public class MainGameScene extends Scene{
 
     public Mapa getMapa(){
         return m;
+    }
+    private void checarCasilla(Casilla casilla){
+        if(casilla.getEnemy()!=null){
+            main.battle(main.getPersonajePrincipal(),casilla.getEnemy(),this);
+        }
     }
     
 }
