@@ -15,11 +15,11 @@ public class Mapa extends VBox{
 				casillas[i][j]= new Casilla();
 				grid.add(casillas[i][j],i,j);
 			}
-		}	
+		}
 		getChildren().add(label);
 		getChildren().add(grid);
 		casillas[0][0].setPersonajePrincipal(main.getPersonajePrincipal());
-		casillas[7][4].setEnemy(new Enemy("Mu",40,20,15,10));
+		casillas[7][4].setEnemy(new AlexXDevil());
 		pintarMapa();
 	}
 
@@ -32,7 +32,7 @@ public class Mapa extends VBox{
 			for(int j=0;j<casillas[i].length;j++){
 				casillas[i][j].pintarCasilla();
 			}
-		}	
+		}
 	}
 
 	public Mapa getNextMap(){

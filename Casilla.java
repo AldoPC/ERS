@@ -4,7 +4,7 @@ import javafx.scene.control.*;
 
 public class Casilla extends StackPane{
 	private Label label;
-	private Player setMainCharacter;
+	private Player personajePrincipal;
 	private Enemy enemy;
 	public Casilla(){
 		label= new Label("");
@@ -12,7 +12,7 @@ public class Casilla extends StackPane{
 	}
 
 	public void pintarCasilla(){
-		if(setMainCharacter==null){
+		if(personajePrincipal==null){
 			if(enemy!=null){
 				label.setText(enemy.getName());
 			}else{
@@ -20,17 +20,17 @@ public class Casilla extends StackPane{
 			}
 
 		}else{
-			label.setText(setMainCharacter.getName());
+			label.setText(personajePrincipal.getName());
 		}
 	}
 
-	public void setsetMainCharacter(Player caballeroDeBronce){
-		this.setMainCharacter=setMainCharacter;
+	public void setPersonajePrincipal(Player personajePrincipal){
+		this.personajePrincipal=personajePrincipal;
 	}
 
 
-	public Player getsetMainCharacter(){
-		return setMainCharacter;
+	public Player getPersonajePrincipal(){
+		return personajePrincipal;
 	}
 
 	public Enemy getEnemy(){
