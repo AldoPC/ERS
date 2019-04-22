@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 
 public class Main extends Application{
 	private ChooseCaracter choseCharacter = new ChooseCaracter(this);
+	private Scene mainGameScene;
+	private Stage primaryStage;
 	private Player personajePrincipal;
 
 	public static void main(String[] args) {
@@ -35,14 +37,11 @@ public class Main extends Application{
  */
 	}
 
-	public void start(Stage primaryStage){
+	public void start(Stage stage){
+		primaryStage = stage;
 		//this.primaryStage = primaryStage;
 		primaryStage.setScene(choseCharacter);
 		primaryStage.show();
-	}
-
-	public void openGame(){
-		primaryStage.setScene(new MainGameScene(this));
 	}
 
 	public void setPlayer(Player personajePrincipal){
@@ -50,7 +49,9 @@ public class Main extends Application{
 		System.out.println(personajePrincipal);
 	}
 
-	public void setScene(Scene scene){
+	public void setGameScene(){
+		mainGameScene = new MainGameScene(this);
+		primaryStage.setScene(mainGameScene);
 		//primaryStage.setScene(new MainGameScene(this));
 	}
 

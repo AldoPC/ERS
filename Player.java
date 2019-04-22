@@ -250,25 +250,5 @@ public void setY(int y){
 
 public int getY(){
 	return y;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 }

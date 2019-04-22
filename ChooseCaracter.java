@@ -26,8 +26,7 @@ public class ChooseCaracter extends Scene {
 			public void handle(MouseEvent e){
 				Player mar= new Marea();
 				main.setPlayer(mar);
-				main.openMap();
-				//add game class
+				main.setGameScene();
 			}
 		});
 
@@ -39,8 +38,7 @@ public class ChooseCaracter extends Scene {
 			public void handle(MouseEvent e){
 				Player dp= new Obunga();
 				main.setPlayer(dp);
-				main.openMap();
-				//add game class
+				main.setGameScene();
 			}
 		});
 
@@ -52,8 +50,7 @@ public class ChooseCaracter extends Scene {
 			public void handle(MouseEvent e){
 				Player cb= new Cocorean();
 				main.setPlayer(cb);
-				main.openMap();
-				//add game class
+				main.setGameScene();
 			}
 		});
 
