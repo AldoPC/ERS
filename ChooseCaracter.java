@@ -1,4 +1,4 @@
-    
+
 import javafx.stage.Stage;
 import javafx.scene.layout.*;
 import javafx.scene.*;
@@ -28,10 +28,10 @@ public class ChooseCaracter extends Scene {
 				main.setPlayer(mar);
 				//add game class
 			}
-		});	
+		});
 
 		Button dps = new Button();
-		dps.setStyle("-fx-background-image:url('img/Mareasprite2.png');");
+		dps.setStyle("-fx-background-image:url('img/Mareasprite.png');");
 		dps.setMinHeight(300);
 		dps.setMinWidth(150);
 		dps.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
@@ -43,16 +43,16 @@ public class ChooseCaracter extends Scene {
 		});
 
 		Button coco= new Button();
-		coco.setStyle("-fx-background-image:url('img/Mareasprite3.png');");
+		coco.setStyle("-fx-background-image:url('img/Mareasprite.png');");
 		coco.setMinHeight(400);
-		coco.setMinWidth(200);		
+		coco.setMinWidth(200);
 		coco.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent e){
-				Player cocorean= new Cocorean();
+				Player cb= new Cocorean();
 				main.setPlayer(cb);
 				//add game class
 			}
-		});	
+		});
 
 		character.add(marea,0,0);
 		character.add(dps,1,0);
@@ -62,5 +62,5 @@ public class ChooseCaracter extends Scene {
         super.setRoot(root);
 
 
-	} 	
+	}
 }

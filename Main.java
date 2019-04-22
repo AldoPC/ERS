@@ -34,7 +34,7 @@ public class Main extends Application{
 		//Battle.duel(yourParty, enemyParty);
  */
 	}
-	
+
 	public void start(Stage primaryStage){
 		//this.primaryStage = primaryStage;
 		primaryStage.setScene(choseCharacter);
@@ -43,9 +43,16 @@ public class Main extends Application{
 
 	public void setPlayer(Player personajePrincipal){
 		this.personajePrincipal= personajePrincipal;
+		System.out.println(personajePrincipal);
+	}
+
+	public void setScene(Scene scene){
+		primaryStage.setScene(new MainGameScene(this));
 	}
 
 	public Player getPlayer(){
 		return personajePrincipal;
 	}
+
+
 }
