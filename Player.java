@@ -10,6 +10,8 @@ public class Player implements CharacterInterface{
 	public int energy;
 	public int speed;
 	public int magic;
+	public int x;
+	public int y;
 	public Abilities[] abilities;
 	public static Objects[] inventory;
 
@@ -236,19 +238,19 @@ public class Player implements CharacterInterface{
 	}
 
 	public void setX(int x){
-		this.x=x;
-	}
+	this.x=x;
+}
 
-	public int getX(){
-		return x;
-	}
-	public void setY(int y){
-		this.y=y;
-	}
+public int getX(){
+	return x;
+}
+public void setY(int y){
+	this.y=y;
+}
 
-	public int getY(){
-		return y;
-	}
+public int getY(){
+	return y;
+
 
 
 
