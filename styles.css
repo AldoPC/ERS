@@ -1,0 +1,23 @@
+.root {
+	-fx-background-color: #a6bad8 ;
+}
+
+.titleLabel {
+	-fx-font-size: 36px;
+}
+.loadGameButton {
+    -fx-font: bold italic 20pt "Arial";
+    -fx-effect: dropshadow( one-pass-box , black , 8 , 0.0 , 2 , 0 );
+    -fx-border-insets: 5;
+    -fx-border-radius: 15;
+}
+.newGameButton {
+    -fx-font: bold italic 20pt "Arial";
+    -fx-effect: dropshadow( one-pass-box , black , 8 , 0.0 , 2 , 0 );
+}
+.newGameButton: hover {
+	-fx-background-color: #a6bad8;
+}
+.loadGameButton: hover {
+	-fx-background-color: #a6bad8;
+}
