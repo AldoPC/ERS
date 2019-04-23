@@ -6,7 +6,13 @@ public class Mapa extends VBox{
 
 	public Mapa(Main main,String titulo,int casillasX,int casillasY){
 		this.main=main;
+
 		GridPane grid= new GridPane();
+		grid.getStylesheets().add("styles.css");
+		grid.setMinSize(500, 500);
+		grid.setMaxSize(500, 500);
+		grid.setGridLinesVisible(true);
+		grid.getStyleClass().add("gripMap");
 		Label label= new Label(titulo);
 		casillas= new Casilla[casillasX][casillasY];
 		for(int i=0;i<casillas.length;i++){

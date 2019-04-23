@@ -21,3 +21,6 @@
 .loadGameButton: hover {
 	-fx-background-color: #a6bad8;
 }
+.gridMap {
+    -fx-background-color: red;
+}

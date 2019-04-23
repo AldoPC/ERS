@@ -31,7 +31,7 @@ public class ChooseCaracter extends Scene {
 		});
 
 		Button dps = new Button();
-		dps.setStyle("-fx-background-image:url('img/Mareasprite.png');");
+		dps.setStyle("-fx-background-image:url('img/Marea2.png');");
 		dps.setMinHeight(300);
 		dps.setMinWidth(150);
 		dps.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
@@ -43,7 +43,7 @@ public class ChooseCaracter extends Scene {
 		});
 
 		Button coco= new Button();
-		coco.setStyle("-fx-background-image:url('img/Mareasprite.png');");
+		coco.setStyle("-fx-background-image:url('img/Marea3.png');");
 		coco.setMinHeight(400);
 		coco.setMinWidth(200);
 		coco.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){

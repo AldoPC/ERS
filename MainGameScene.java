@@ -13,6 +13,7 @@ public class MainGameScene extends Scene{
 		super(new GridPane());
 		this.main=main;
 		GridPane gridPane=(GridPane)super.getRoot();
+        
 		gridPane.add(new Label(main.getPlayer().getName()),0,0);
 		m= new Mapa(main,"Mapa 1",30,30);
 		gridPane.add(m,0,1);
