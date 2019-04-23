@@ -14,7 +14,7 @@ public class MainGameScene extends Scene{
 		this.main=main;
 		GridPane gridPane=(GridPane)super.getRoot();
 		gridPane.add(new Label(main.getPlayer().getName()),0,0);
-		m= new Mapa(main,"Mapa 1",10,10);
+		m= new Mapa(main,"Mapa 1",30,30);
 		gridPane.add(m,0,1);
 		gridPane.add(new Label("Prueba"),0,2);
         setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -58,7 +58,7 @@ public class MainGameScene extends Scene{
                 	m= m.getNextMap();
                 	gridPane.add(m,0,1);
                 }
-                // m.pintarMapa();
+                m.pintarMapa();
             }
         });
 	}
