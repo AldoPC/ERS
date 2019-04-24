@@ -19,7 +19,7 @@ public class ChooseCaracter extends Scene {
 		character.setGridLinesVisible(true);
 
 		Button marea = new Button();
-		marea.setStyle("-fx-background-image:url('img/Mareasprite.png');");
+		marea.setStyle("-fx-background-image:url('img/Marea1.png');");
 		marea.setMinHeight(300);
 		marea.setMinWidth(150);
 		marea.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
@@ -44,8 +44,8 @@ public class ChooseCaracter extends Scene {
 
 		Button coco= new Button();
 		coco.setStyle("-fx-background-image:url('img/Marea3.png');");
-		coco.setMinHeight(400);
-		coco.setMinWidth(200);
+		coco.setMinHeight(300);
+		coco.setMinWidth(150);
 		coco.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent e){
 				Player cb= new Cocorean();

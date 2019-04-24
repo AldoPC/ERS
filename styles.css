@@ -1,5 +1,8 @@
 .root {
 	-fx-background-color: #a6bad8 ;
+	-fx-background-image: url('img/SEA.gif');
+	-fx-background-size: cover;
+	-fx-background-position: top ;
 }
 
 .titleLabel {

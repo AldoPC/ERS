@@ -13,9 +13,10 @@ public class MainGameScene extends Scene{
 		super(new GridPane());
 		this.main=main;
 		GridPane gridPane=(GridPane)super.getRoot();
-        
+
 		gridPane.add(new Label(main.getPlayer().getName()),0,0);
-		m= new Mapa(main,"Mapa 1",30,30);
+		//640px X 480px
+		m= new Mapa(main,"Mapa 1",20,15);
 		gridPane.add(m,0,1);
 		gridPane.add(new Label("Prueba"),0,2);
         setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -68,11 +69,11 @@ public class MainGameScene extends Scene{
         return m;
     }
     private void checarCasilla(Casilla casilla){
-        /*
+
 				if(casilla.getEnemy()!=null){
-            main.battle(main.getPersonajePrincipal(),casilla.getEnemy(),this);
+            main.setBattleScene();
         }
-				*/
+
     }
 
 }

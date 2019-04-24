@@ -16,11 +16,13 @@ public class Casilla extends StackPane{
 	public void pintarCasilla(){
 		if(personajePrincipal==null){
 			if(enemy!=null){
-				label.setText(enemy.getName());
-			}else{
-				label.setText(" ");
+				//label.setText(enemy.getName());
 				imgPer = new Image(getClass().getResourceAsStream("img/Rock.png"));
-				label.setGraphic(new ImageView(imgPer));	
+				label.setGraphic(new ImageView(imgPer));
+			}else{
+				label.setMinWidth(32);
+				label.setMinHeight(32);
+				label.setGraphic(null);
 			}
 
 		}else{
