@@ -1,8 +1,8 @@
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
 public class Mapa extends VBox{
-	private Casilla[][] casillas;
-	private Main main;
+	public Casilla[][] casillas;
+	public Main main;
 
 	public Mapa(Main main,String titulo,int casillasX,int casillasY){
 		this.main=main;
@@ -22,8 +22,11 @@ public class Mapa extends VBox{
 		}
 		getChildren().add(label);
 		getChildren().add(grid);
-		casillas[0][0].setPersonajePrincipal(main.getPersonajePrincipal());
+
+		casillas[9][9].setPersonajePrincipal(main.getPersonajePrincipal());
+		/*
 		casillas[7][4].setEnemy(new AlexXDevil());
+		*/
 		pintarMapa();
 	}
 
@@ -40,7 +43,7 @@ public class Mapa extends VBox{
 	}
 
 	public Mapa getNextMap(){
-		return new Mapa2(main);
+		return new Mapa1(main);
 	}
 
 

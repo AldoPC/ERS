@@ -16,7 +16,7 @@ public class MainGameScene extends Scene{
 
 		gridPane.add(new Label(main.getPlayer().getName()),0,0);
 		//640px X 480px
-		m= new Mapa(main,"Mapa 1",20,15);
+		m= new Mapa(main,"Mapa 0", 20,15);
 		gridPane.add(m,0,1);
 		gridPane.add(new Label("Prueba"),0,2);
         setOnKeyPressed(new EventHandler<KeyEvent>() {
