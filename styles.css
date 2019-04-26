@@ -4,6 +4,9 @@
 	-fx-background-size: cover;
 	-fx-background-position: top ;
 }
+.hbox {
+	-fx-background-image: url('img/RED.gif');
+}
 
 .titleLabel {
 	-fx-font-size: 36px;
