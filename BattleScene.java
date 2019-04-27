@@ -1,4 +1,3 @@
-
 import javafx.stage.Stage;
 import javafx.scene.layout.*;
 import javafx.scene.*;
@@ -20,6 +19,9 @@ public class BattleScene extends Scene {
 	public BattleScene(Main main){
 		super(new GridPane());
 		this.main=main;
+
+
+    	hbox.setCenter(vboxBattle);
 		Button attack = new Button("Attack");
 		Button abilities = new Button("Abilities");
 		Button item = new Button("item");
@@ -41,11 +43,30 @@ public class BattleScene extends Scene {
     	vboxBattle.getChildren().addAll(battleGrid, batlleButtons, terminal);
     	
     	//hbox.add(vboxBattle);
-    	hbox.setAlignment(vboxBattle, Pos.CENTER);
+		terminal.setAlignment(Pos.CENTER);
+		batlleButtons.setAlignment(Pos.CENTER);
+		battleGrid.setAlignment(Pos.CENTER);
+		terminal.setAlignment(Pos.TOP_LEFT);
+		batlleButtons.setAlignment(Pos.CENTER);
+		battleGrid.setAlignment(Pos.CENTER);
+		hbox.setAlignment(vboxBattle, Pos.CENTER);
     	hbox.setCenter(vboxBattle);
+
+    	console1.setText(console2.getText());
+    	
+
     	super.setRoot(hbox);
 
 
 
 	}
+
+
+	public String terminalPrint(String string){
+		for(int i=0; i<6;i++){
+			console1.setText(console2);
+		}
+		
+	}
+
 }
