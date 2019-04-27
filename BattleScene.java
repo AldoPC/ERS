@@ -27,9 +27,12 @@ public class BattleScene extends Scene {
 		Button item = new Button("item");
 		Button move = new Button("Move");
 		batlleButtons.getChildren().addAll(attack, abilities, item, move);
-		Label console1 = new Label(" 1");
-		Label console2 = new Label(" 2");
+		Label console1 = new Label();
+		console1.setText(" 1");
+		Label console2 = new Label();
+		console2.setText(" 3");
 		Label console3 = new Label(" 3");
+		console3.setText("3");
 		Label console4 = new Label(" 4");
 		Label console5 = new Label(" 5");
 		terminal.getChildren().addAll(console1, console2, console3, console4, console5);
@@ -37,11 +40,11 @@ public class BattleScene extends Scene {
 
 		GridPane battleGrid =(GridPane)super.getRoot();
 		battleGrid.setGridLinesVisible(true);
-   		 m= new MapaBattle(main,"battleGrid",6,3);
+   	m= new MapaBattle(main,"battleGrid",6,3);
 		battleGrid.add(m,0,1);
 		vboxBattle.setAlignment(Pos.CENTER);
-    	vboxBattle.getChildren().addAll(battleGrid, batlleButtons, terminal);
-    	
+  	vboxBattle.getChildren().addAll(battleGrid, batlleButtons, terminal);
+
     	//hbox.add(vboxBattle);
 		terminal.setAlignment(Pos.CENTER);
 		batlleButtons.setAlignment(Pos.CENTER);
@@ -50,10 +53,10 @@ public class BattleScene extends Scene {
 		batlleButtons.setAlignment(Pos.CENTER);
 		battleGrid.setAlignment(Pos.CENTER);
 		hbox.setAlignment(vboxBattle, Pos.CENTER);
-    	hbox.setCenter(vboxBattle);
+    hbox.setCenter(vboxBattle);
 
     	console1.setText(console2.getText());
-    	
+
 
     	super.setRoot(hbox);
 
@@ -64,9 +67,9 @@ public class BattleScene extends Scene {
 
 	public String terminalPrint(String string){
 		for(int i=0; i<6;i++){
-			console1.setText(console2);
+			console1.setText(console2.getText());
 		}
-		
+
 	}
 
 }
