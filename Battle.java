@@ -2,6 +2,16 @@ import java.util.Scanner;
 
 public class Battle{
 
+
+
+  public Battle(){
+
+
+
+
+  }
+/*
+  
   public static void duel(Player you[], Enemy enemy[]) {
 	  int yourSpeed = you[0].getSpeed() + you[1].getSpeed() + you[2].getSpeed();
 	  int enemySpeed = enemy[0].getSpeed() + enemy[1].getSpeed() + enemy[2].getSpeed();
@@ -100,10 +110,7 @@ public class Battle{
 
   }
 
-
-
-
-
+*/
 
 
 }
