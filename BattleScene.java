@@ -75,7 +75,7 @@ public class BattleScene extends Scene {
     	hbox.setCenter(vboxBattle);
 
 
-    
+
     Enemy raidriar= new Raidriar();
 	Enemy alexXDevil= new AlexXDevil();
     Enemy joker= new Joker();
@@ -98,7 +98,7 @@ public class BattleScene extends Scene {
 
 
 	super.setRoot(hbox);
-   
+
 
 
 
@@ -135,7 +135,7 @@ public class BattleScene extends Scene {
 	  terminalPrint("Battle Start!!!");
 	  terminalPrint("Choose your character");
 
-	  
+
 	  while (Party.teamIsAlive(you) && Enemy.teamIsAlive(enemy)) {
 
 		  for (int y = 0; y < 3; y++) {
@@ -176,7 +176,7 @@ public class BattleScene extends Scene {
                                   terminalPrint("-----------------------------------------------------");
                                   break;
                           }
-                          
+
                   }
 		      }
 		  }
@@ -201,5 +201,15 @@ public class BattleScene extends Scene {
     }
 
   }
+
+	scene2.setOnKeyPressed(new EventHandler<KeyEvent>(){
+			public void handle(KeyEvent event) {
+				switch (event.getCode()){
+					case S:
+						vbox2.getChildren().add(new Label(usuario.saludar()));
+						break;
+				}
+			}
+		});
 
 }
