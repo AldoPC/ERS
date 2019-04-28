@@ -253,6 +253,3 @@ public class Player implements CharacterInterface{
 	}
 
 }
-
-
-

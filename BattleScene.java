@@ -23,26 +23,30 @@ public class BattleScene extends Scene {
   	public  Label console5;
   	private MapaBattle m;
 
+		private int choosed;
+
   	private int answer;
 
   	private Battle bs = new Battle();
+
+		private Button attack = new Button("Attack");
+		private Button abilities = new Button("Abilities");
+		private Button item = new Button("item");
+		private Button move = new Button("Move");
+
+		private Player[] yourParty= new Player[3];
+		private Enemy[] enemyParty= new Enemy[3];
 
 	public BattleScene(Main main){
 		super(new GridPane());
 		this.main=main;
 
 
-    	hbox.setCenter(vboxBattle);
-		Button attack = new Button("Attack");
-		attack.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
-			public void handle(MouseEvent e){
-				answer= 1;
-				terminalPrint("1");
-			}
-		});
-		Button abilities = new Button("Abilities");
-		Button item = new Button("item");
-		Button move = new Button("Move");
+
+    hbox.setCenter(vboxBattle);
+
+
+
 		batlleButtons.getChildren().addAll(attack, abilities, item, move);
 		console1 = new Label(" 1");
 		console1.setText(" 1");
@@ -59,10 +63,10 @@ public class BattleScene extends Scene {
 
 		GridPane battleGrid =(GridPane)super.getRoot();
 		battleGrid.setGridLinesVisible(true);
-   		m= new MapaBattle(main,"battleGrid",6,3);
+   	m= new MapaBattle(main,"battleGrid",6,3);
 		battleGrid.add(m,0,1);
 		vboxBattle.setAlignment(Pos.CENTER);
-  		vboxBattle.getChildren().addAll(battleGrid, batlleButtons, terminal);
+  	vboxBattle.getChildren().addAll(battleGrid, batlleButtons, terminal);
 
     	//hbox.add(vboxBattle);
 		terminal.setAlignment(Pos.CENTER);
@@ -72,27 +76,27 @@ public class BattleScene extends Scene {
 		batlleButtons.setAlignment(Pos.CENTER);
 		battleGrid.setAlignment(Pos.CENTER);
 		hbox.setAlignment(vboxBattle, Pos.CENTER);
-    	hbox.setCenter(vboxBattle);
+    hbox.setCenter(vboxBattle);
 
 
 
-    Enemy raidriar= new Raidriar();
+  Enemy raidriar= new Raidriar();
 	Enemy alexXDevil= new AlexXDevil();
-    Enemy joker= new Joker();
+  Enemy joker= new Joker();
 
 	Player marea= new Marea();
 	Player obunga= new Obunga();
 	Player cocorean= new Cocorean();
 
-	Player[] yourParty= new Player[3];
-	yourParty[0]= marea;
-	yourParty[1]= obunga;
-	yourParty[2]= cocorean;
 
-	Enemy[] enemyParty= new Enemy[3];
+	yourParty[0]= main.getPersonajePrincipal();
+	yourParty[1]= marea;
+	yourParty[2]= marea;
+
 	enemyParty[0]= raidriar;
-	enemyParty[1]= alexXDevil;
-	enemyParty[2]= joker;
+	enemyParty[1]= raidriar;
+	enemyParty[2]= raidriar;
+
 
 	duel(yourParty, enemyParty);
 
@@ -114,102 +118,68 @@ public class BattleScene extends Scene {
 
 	}
 
-	  public void duel(Player you[], Enemy enemy[]) {
-	  int yourSpeed = you[0].getSpeed() + you[1].getSpeed() + you[2].getSpeed();
-	  int enemySpeed = enemy[0].getSpeed() + enemy[1].getSpeed() + enemy[2].getSpeed();
-	  int fighters = 0;
-      int choosed;
-
-	  boolean turn = yourSpeed > enemySpeed;
-
-	  for (int f = 0; f < 3; f++) {
-		  if (you[f] != null) {
-			  fighters = fighters + 1;
-		  }
-		  if (enemy[f] != null) {
-			  fighters = fighters + 1;
-		  }
-	  }
-
-	  terminalPrint("There are " + fighters + " characters in battle");
-	  terminalPrint("Battle Start!!!");
+	public void duel(Player you[], Enemy enemy[]) {
+		terminalPrint("Battle Start!!!");
 	  terminalPrint("Choose your character");
+		int y=0;
+		choosed= 0;
 
 
-	  while (Party.teamIsAlive(you) && Enemy.teamIsAlive(enemy)) {
+    terminalPrint("What will "+you[y].getName()+" do?");
 
-		  for (int y = 0; y < 3; y++) {
-		      if (you[y].isAlive() && you[y] != null) {
-                  if (turn) {
+		attack.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
+			public void handle(MouseEvent e){
 
-                      	terminalPrint("What will "+you[y].getName()+" do?");
+			int currHp= enemy[choosed].getHp();
+			you[y].attack(enemy[choosed]);
+			int damage= currHp - enemy[choosed].getHp();
+			terminalPrint(you[y].getName() + "'s attack does " + damage + " damage!");
+			terminalPrint(enemy[choosed].getName() + "'s Health:"+ enemy[choosed].getHp());
 
-                          switch (answer) {
-                              case 1:
-                                  choosed = you[y].chooseEnemy(enemy);
-                                  if (enemy[choosed].isAlive() && enemy[choosed] != null ){
-                                      terminalPrint("-----------------------------------------------------");
-                                      you[y].attack(enemy[choosed]);
-                                      terminalPrint("-----------------------------------------------------");
+			currHp= you[y].getHp();
+			enemy[choosed].attack(you);
+			damage= currHp - you[y].getHp();
+			terminalPrint(enemy[choosed].getName() + "'s attack does " + damage + " damage!");
+			terminalPrint(you[y].getName() + "'s Health:"+ you[y].getHp());
 
-                                      } else {
-                                          terminalPrint(enemy[choosed].getName()+" is already dead");
-                                          y -= 1;
-                                      }
-                                  break;
-                              case 2:
-                                  int ab= you[y].useAbilities();
-                                  choosed = you[y].chooseEnemy(enemy);
-                                  if (enemy[choosed].isAlive() && enemy[choosed] != null ){
-                                      terminalPrint("-----------------------------------------------------");
-                                      you[y].attack(enemy[choosed], ab);
-                                      terminalPrint("-----------------------------------------------------");
-
-                                  } else {
-                                      terminalPrint(enemy[choosed].getName()+" is already dead");
-                                      y -= 1;
-                                  }
-                                  break;
-                              case 3:
-                                  terminalPrint("-----------------------------------------------------");
-                                  you[y].useItem(you);
-                                  terminalPrint("-----------------------------------------------------");
-                                  break;
-                          }
-
-                  }
-		      }
-		  }
-
-		  for (int e = 0; e < 3; e++) {
-            if (enemy[e].isAlive() && enemy[e] != null) {
-                if (!turn) {
-                    enemy[e].attack(you);
-                }
-            }
-		  }
-		  turn = !turn;
-
-	  }
-
-    if (Party.teamIsAlive(you)){
-      terminalPrint("You win!");
-    } else if (Enemy.teamIsAlive(enemy)){
-      terminalPrint("You lose!");
-    } else {
-      terminalPrint("Draw!");
-    }
-
-  }
-
-	scene2.setOnKeyPressed(new EventHandler<KeyEvent>(){
-			public void handle(KeyEvent event) {
-				switch (event.getCode()){
-					case S:
-						vbox2.getChildren().add(new Label(usuario.saludar()));
-						break;
-				}
 			}
 		});
+		abilities.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
+			public void handle(MouseEvent e){
+
+			int currHp= enemy[choosed].getHp();
+			you[y].attack(enemy[choosed], 0);
+			int damage= currHp - enemy[choosed].getHp();
+			terminalPrint(you[y].getName()+" used "+you[y].abilities[0].getName());
+			terminalPrint(you[y].getName() + "'s attack does " + damage + " damage!");
+			terminalPrint(enemy[choosed].getName() + "'s Health:"+ enemy[choosed].getHp());
+
+			currHp= you[y].getHp();
+			enemy[choosed].attack(you);
+			damage= currHp - you[y].getHp();
+			terminalPrint(enemy[choosed].getName() + "'s attack does " + damage + " damage!");
+			terminalPrint(you[y].getName() + "'s Health:"+ you[y].getHp());
+
+			}
+		});
+		item.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
+			public void handle(MouseEvent e){
+
+			int currHp= enemy[choosed].getHp();
+			you[y].usePotion(you, 0);
+			int damage= currHp - enemy[choosed].getHp();
+			terminalPrint(you[y].getName() +"s health has increased to " + you[y].getHp());
+
+			currHp= you[y].getHp();
+			enemy[choosed].attack(you);
+			damage= currHp - you[y].getHp();
+			terminalPrint(enemy[choosed].getName() + "'s attack does " + damage + " damage!");
+			terminalPrint(you[y].getName() + "'s Health:"+ you[y].getHp());
+
+			}
+		});
+	}
+
+
 
 }

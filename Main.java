@@ -12,36 +12,15 @@ public class Main extends Application{
 	private Scene mainGameScene;
 	private Stage primaryStage;
 	private Player personajePrincipal;
+	private Enemy enemy;
+
 
 	public static void main(String[] args) {
     	Application.launch(args);
-
-/*
-		Enemy raidriar= new Raidriar();
-		Enemy alexXDevil= new AlexXDevil();
-    	Enemy joker= new Joker();
-
-		Player marea= new Marea();
-		Player obunga= new Obunga();
-		Player cocorean= new Cocorean();
-
-		Player[] yourParty= new Player[3];
-		yourParty[0]= marea;
-		yourParty[1]= obunga;
-		yourParty[2]= cocorean;
-
-		Enemy[] enemyParty= new Enemy[3];
-		enemyParty[0]= raidriar;
-		enemyParty[1]= alexXDevil;
-		enemyParty[2]= joker;
-
-		//Battle.duel(yourParty, enemyParty);
- */
 	}
 
 	public void start(Stage stage){
 		primaryStage = stage;
-		//this.primaryStage = primaryStage;
 		primaryStage.setScene(loadScene);
 		//640px X 480px
 		primaryStage.setWidth(656);
@@ -65,18 +44,21 @@ public class Main extends Application{
 		System.out.println(personajePrincipal);
 	}
 
-	public void setGameScene(){
-		mainGameScene = new MainGameScene(this);
-		primaryStage.setScene(mainGameScene);
-		//primaryStage.setScene(new MainGameScene(this));
-	}
-
 	public Player getPlayer(){
 		return personajePrincipal;
 	}
 
+	public void setGameScene(){
+		mainGameScene = new MainGameScene(this);
+		primaryStage.setScene(mainGameScene);
+	}
+
 	public void setPersonajePrincipal(Player personajePrincipal){
 		this.personajePrincipal=personajePrincipal;
+	}
+
+	public void setEnemy(Enemy enemy){
+		this.enemy=enemy;
 	}
 
 	public Player getPersonajePrincipal(){
