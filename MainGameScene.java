@@ -13,12 +13,12 @@ public class MainGameScene extends Scene{
 		super(new GridPane());
 		this.main=main;
 		GridPane gridPane=(GridPane)super.getRoot();
-
-		gridPane.add(new Label(main.getPlayer().getName()),0,0);
+        gridPane.setStyle("-fx-background-image:url('img/red.gif'); -fx-background-size: cover; -fx-background-position: top ;");
+		//gridPane.add(new Label(main.getPlayer().getName()),0,0);
 		//640px X 480px
 		m= new Mapa(main,"Mapa 0", 20,15);
 		gridPane.add(m,0,1);
-		gridPane.add(new Label("Prueba"),0,2);
+		//gridPane.add(new Label("Prueba"),0,2);
         setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {

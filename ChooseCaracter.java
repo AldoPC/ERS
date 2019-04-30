@@ -5,23 +5,27 @@ import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.event.*;
 import javafx.scene.input.*;
-
+import javafx.geometry.*;
 
 
 public class ChooseCaracter extends Scene {
 	private Main main;
-	private VBox root = new VBox();
+	private VBox loadSc = new VBox();
 
 	public ChooseCaracter(Main main){
 		super(new GridPane());
 		this.main=main;
 		GridPane character =(GridPane)super.getRoot();
 		character.setGridLinesVisible(true);
+		character.setStyle("-fx-background-image:url('img/redSea.gif'); -fx-background-size: cover; -fx-background-position: top ;");
+		loadSc.setStyle("-fx-background-image:url('img/redSea.gif'); -fx-background-size: cover; -fx-background-position: top ;");
+		character.getStylesheets().add("styles.css");
 
 		Button marea = new Button();
 		marea.setStyle("-fx-background-image:url('img/Marea1.png');");
-		marea.setMinHeight(300);
-		marea.setMinWidth(150);
+		marea.getStyleClass().add("mareaBut");
+		marea.setMinHeight(350);
+		marea.setMinWidth(170);
 		marea.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent e){
 				Player mar= new Marea();
@@ -32,8 +36,9 @@ public class ChooseCaracter extends Scene {
 
 		Button dps = new Button();
 		dps.setStyle("-fx-background-image:url('img/Marea2.png');");
-		dps.setMinHeight(300);
-		dps.setMinWidth(150);
+		dps.getStyleClass().add("mareaBut");
+		dps.setMinHeight(350);
+		dps.setMinWidth(170);
 		dps.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent e){
 				Player dp= new Obunga();
@@ -44,8 +49,9 @@ public class ChooseCaracter extends Scene {
 
 		Button coco= new Button();
 		coco.setStyle("-fx-background-image:url('img/Marea3.png');");
-		coco.setMinHeight(300);
-		coco.setMinWidth(150);
+		coco.getStyleClass().add("mareaBut");
+		coco.setMinHeight(350);
+		coco.setMinWidth(170);
 		coco.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent e){
 				Player cb= new Cocorean();
@@ -58,8 +64,13 @@ public class ChooseCaracter extends Scene {
 		character.add(dps,1,0);
 		character.add(coco,2,0);
 
-		root.getChildren().addAll(character);
-        super.setRoot(root);
+		character.setPadding(new Insets(50));
+        character.setHgap(16);
+        character.setVgap(8);
+
+
+		loadSc.getChildren().addAll(character);
+        super.setRoot(loadSc);
 
 
 	}

@@ -4,12 +4,12 @@ import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.event.*;
 import javafx.scene.input.*;
-
+import javafx.geometry.*;
 
 public class LoadScene extends Scene {
 	private Main main;
 	private GridPane root = new GridPane();
-
+	private VBox butt = new VBox();
 
 	public LoadScene(Main main){
 		super(new GridPane());
@@ -18,9 +18,10 @@ public class LoadScene extends Scene {
 
 		root = (GridPane)super.getRoot();
 		root.getStylesheets().add("styles.css");
-		
+		butt.getStyleClass().add("butt");
 
-		Label title = new Label("Obunga Marea Game");
+
+		Label title = new Label(" ECHOES OF THE RED SEA");
 		title.getStyleClass().add("titleLabel");
 
 
@@ -48,11 +49,14 @@ public class LoadScene extends Scene {
 		});	
 
 
+		root.setPadding(new Insets(150));
+        root.setHgap(16);
+        root.setVgap(8);
 
-
-		root.add(title,0,0);
-		root.add(newGame,0,1);
-		root.add(loadGame,0,2);
+        root.add(title,0,0);
+		butt.getChildren().addAll(newGame, loadGame);
+		root.add(butt,0,1);
+		butt.setAlignment(Pos.CENTER);
 
 		super.setRoot(root);
 	}
