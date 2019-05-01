@@ -12,6 +12,7 @@ import java.lang.Exception;
 
 public class BattleScene extends Scene {
 	private Main main;
+	private MainGameScene scene;
 	private VBox all = new VBox();
 	private VBox vboxBattle = new VBox();
 	private BorderPane hbox  = new BorderPane();
@@ -23,10 +24,16 @@ public class BattleScene extends Scene {
   	private  Label console4;
   	public  Label console5;
   	private MapaBattle m;
+  	private Player personajePrincipal;
 
 	private int choosed;
 
   	private int answer;
+
+  	private Enemy personaje2;
+	private Player personaje1;
+	
+
 
   	private Battle bs = new Battle();
 
@@ -70,6 +77,7 @@ public class BattleScene extends Scene {
 		batlleButtons.setAlignment(Pos.CENTER);
 		battleGrid.setAlignment(Pos.CENTER);
   		vboxBattle.getChildren().addAll(battleGrid, batlleButtons, terminal);
+  		battleGrid.setStyle("-fx-background-color: #7ca3e2;");
 		//hbox.setAlignment(vboxBattle, Pos.CENTER);
 		all.setStyle("-fx-background-image: url('img/SEA.gif'); -fx-background-size: cover; -fx-background-position: top ;");
 	    //hbox.setCenter(vboxBattle);
@@ -126,36 +134,54 @@ public class BattleScene extends Scene {
 
 		attack.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent e){
-			try{	
-				int currHp= enemy[choosed].getHp();
+				Player personajePrincipal= main.getPersonajePrincipal();
+				int currHpEnemy= enemy[choosed].getHp();
 				you[y].attack(enemy[choosed]);
-				int damage= currHp - enemy[choosed].getHp();
+				int damage= currHpEnemy - enemy[choosed].getHp();
+				if(currHpEnemy == 0){
+					scene.getMapa().getCasillas()[personaje1.getX()][personaje1.getY()].setEnemy(null);
+					main.returnToScene();
+
+				}	
 				terminalPrint(you[y].getName() + "'s attack does " + damage + " damage!");
 				terminalPrint(enemy[choosed].getName() + "'s Health:"+ enemy[choosed].getHp());
 
-				currHp= you[y].getHp();
+				int currHpYou= you[y].getHp();
 				enemy[choosed].attack(you);
-				damage= currHp - you[y].getHp();
+				damage= currHpYou - you[y].getHp();
+				if(currHpYou == 0){
+					main.endGame();
+					//casillas[7][4].setEnemy(null);
+				}	
 				terminalPrint(enemy[choosed].getName() + "'s attack does " + damage + " damage!");
 				terminalPrint(you[y].getName() + "'s Health:"+ you[y].getHp());
-			}catch(LiveException ex){
 
-				}	
 			}
 		});
 		abilities.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent e){
 
-			int currHp= enemy[choosed].getHp();
+			int currHpEnemy= enemy[choosed].getHp();
 			you[y].attack(enemy[choosed], 0);
-			int damage= currHp - enemy[choosed].getHp();
+			int damage= currHpEnemy - enemy[choosed].getHp();
+			if(currHpEnemy == 0){
+					scene.getMapa().getCasillas()[personaje1.getX()][personaje1.getY()].setEnemy(null);
+					main.returnToScene();
+
+				}	
+
+
 			terminalPrint(you[y].getName()+" used "+you[y].abilities[0].getName());
 			terminalPrint(you[y].getName() + "'s attack does " + damage + " damage!");
 			terminalPrint(enemy[choosed].getName() + "'s Health:"+ enemy[choosed].getHp());
 
-			currHp= you[y].getHp();
+			int currHpYou= you[y].getHp();
 			enemy[choosed].attack(you);
-			damage= currHp - you[y].getHp();
+			damage= currHpYou - you[y].getHp();
+			if(currHpYou == 0){
+					main.endGame();
+					//casillas[7][4].setEnemy(null);
+				}	
 			terminalPrint(enemy[choosed].getName() + "'s attack does " + damage + " damage!");
 			terminalPrint(you[y].getName() + "'s Health:"+ you[y].getHp());
 
@@ -164,14 +190,23 @@ public class BattleScene extends Scene {
 		item.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent e){
 
-			int currHp= enemy[choosed].getHp();
+			int currHpEnemy= enemy[choosed].getHp();
 			you[y].usePotion(you, 0);
-			int damage= currHp - enemy[choosed].getHp();
+			int damage= currHpEnemy - enemy[choosed].getHp();
+			if(currHpEnemy == 0){
+					main.returnToScene();
+					scene.getMapa().getCasillas()[personaje1.getX()][personaje1.getY()].setEnemy(null);
+
+				}	
 			terminalPrint(you[y].getName() +"s health has increased to " + you[y].getHp());
 
-			currHp= you[y].getHp();
+			int currHpYou= you[y].getHp();
 			enemy[choosed].attack(you);
-			damage= currHp - you[y].getHp();
+			damage= currHpYou - you[y].getHp();
+			if(currHpYou == 0){
+					main.endGame();
+					//casillas[7][4].setEnemy(null);
+				}	
 			terminalPrint(enemy[choosed].getName() + "'s attack does " + damage + " damage!");
 			terminalPrint(you[y].getName() + "'s Health:"+ you[y].getHp());
 

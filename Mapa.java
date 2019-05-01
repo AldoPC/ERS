@@ -23,7 +23,7 @@ public class Mapa extends VBox{
 		getChildren().add(label);
 		getChildren().add(grid);
 
-		casillas[9][9].setPersonajePrincipal(main.getPersonajePrincipal());
+		//casillas[9][9].setPersonajePrincipal(main.getPersonajePrincipal());
 		/*
 		casillas[7][4].setEnemy(new AlexXDevil());
 		*/

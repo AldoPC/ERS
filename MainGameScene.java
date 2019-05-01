@@ -74,6 +74,7 @@ public class MainGameScene extends Scene{
             main.setBattleScene();
         }
 
+
     }
 
 }

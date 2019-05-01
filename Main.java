@@ -52,6 +52,12 @@ public class Main extends Application{
 		mainGameScene = new MainGameScene(this);
 		primaryStage.setScene(mainGameScene);
 	}
+	public void returnToScene(){
+		primaryStage.setScene(mainGameScene);
+	}
+	public void endGame(){
+		primaryStage.hide();
+	}
 
 	public void setPersonajePrincipal(Player personajePrincipal){
 		this.personajePrincipal=personajePrincipal;

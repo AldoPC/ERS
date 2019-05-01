@@ -202,7 +202,7 @@ public class Player implements CharacterInterface{
 		return (sc.nextInt()-1);
 	}
 
-	public void attack(Enemy defender, int i) {
+	public void attack(Enemy defender, int i)  {
 		int damage = Math.max(0, abilities[i].getPuntosEspeciales() - defender.getDefense());
 		int hp = Math.max(0, defender.getHp() - damage);
 		System.out.println(name+" used "+abilities[i].getName());
