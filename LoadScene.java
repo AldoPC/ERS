@@ -61,7 +61,7 @@ public class LoadScene extends Scene implements Serializable{
 						FileInputStream fin = new FileInputStream(selectedFile);
 						ObjectInputStream ois = new ObjectInputStream(fin);
 						setMPer((Player) ois.readObject()); 
-						main.returnToScene();
+						main.setGameScene();
 						System.out.println("ok");
 					}catch(IOException ex){
 						ex.printStackTrace();
