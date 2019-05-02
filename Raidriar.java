@@ -1,4 +1,5 @@
-public class Raidriar extends Enemy{
+import java.io.Serializable;
+public class Raidriar extends Enemy implements Serializable{
 
 	public Raidriar(){
     //  String name, int level, int hp, int attack, int defense, int energy, int speed, int magic

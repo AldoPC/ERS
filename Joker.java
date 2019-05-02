@@ -1,4 +1,5 @@
-public class Joker extends Enemy{
+import java.io.Serializable;
+public class Joker extends Enemy implements Serializable{
 
     public Joker(){
         //  String name, int level, int hp, int attack, int defense, int energy, int speed, int magic

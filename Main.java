@@ -3,9 +3,9 @@ import java.util.Scanner;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import java.io.Serializable;
 
-
-public class Main extends Application{
+public class Main extends Application implements Serializable{ 
 	private Scene loadScene = new LoadScene(this);
 	private ChooseCaracter choseCharacter;
 	private BattleScene battleScene;

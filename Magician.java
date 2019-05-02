@@ -1,4 +1,6 @@
-public class Magician extends Player {
+
+import java.io.Serializable;
+public class Magician extends Player implements Serializable{
 
 
     public Magician(String name, int level, int hp, int attack,int defense,

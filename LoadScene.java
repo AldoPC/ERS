@@ -13,10 +13,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.IOException;
 
+import java.io.Serializable;
 
-
-public class LoadScene extends Scene {
+public class LoadScene extends Scene implements Serializable{
 	private Main main;
+	private Mapa m;
 	private GridPane root = new GridPane();
 	private VBox butt = new VBox();
 
@@ -56,9 +57,11 @@ public class LoadScene extends Scene {
 						File selectedFile = new File("personaje.atm");
 						FileInputStream fin = new FileInputStream(selectedFile);
 						ObjectInputStream ois = new ObjectInputStream(fin);
-						//m=(Mapa) ois.readObject();
-						//imprimirAgenda();
+						m=(Mapa) ois.readObject();
+						main.returnToScene();
 					}catch(IOException ex){
+						ex.printStackTrace();
+					}catch(ClassNotFoundException ex){
 						ex.printStackTrace();
 					}
 			}

@@ -12,7 +12,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.IOException;
 
-public class MainGameScene extends Scene{
+import java.io.Serializable;
+
+public class MainGameScene extends Scene implements Serializable{
 
 	private Main main;
 	private Mapa m;

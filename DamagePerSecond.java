@@ -1,4 +1,5 @@
-public class DamagePerSecond extends Player {
+import java.io.Serializable;
+public class DamagePerSecond extends Player  implements Serializable{
 
     public DamagePerSecond(String name, int level, int hp, int attack,int defense,
                    int energy, int speed, int magic){

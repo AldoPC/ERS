@@ -1,4 +1,5 @@
-public class Warrior extends Player {
+import java.io.Serializable;
+public class Warrior extends Player implements Serializable {
 
     public Warrior(String name, int level, int hp, int attack,int defense,
                     int energy, int speed, int magic){

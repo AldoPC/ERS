@@ -1,9 +1,9 @@
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
+import java.io.Serializable;
 
-
-public class Casilla extends StackPane{
+public class Casilla extends StackPane implements Serializable{
 	private Label label;
 	private Player personajePrincipal;
 	private Enemy enemy;

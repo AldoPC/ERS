@@ -1,4 +1,6 @@
-public class Objects{
+import java.io.Serializable;
+
+public class Objects implements Serializable{
 	private String name;
 	private int points;
 

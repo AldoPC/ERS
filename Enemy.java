@@ -1,6 +1,7 @@
 import java.util.Scanner;
+import java.io.Serializable;
 
-public class Enemy {
+public class Enemy implements Serializable {
 
     public String name;
     public int level;

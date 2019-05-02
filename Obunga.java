@@ -1,4 +1,5 @@
-public class Obunga extends DamagePerSecond{
+import java.io.Serializable;
+public class Obunga extends DamagePerSecond implements Serializable{
 
     public Obunga(){
         //    String name, int level, int hp, int attack,int defense,int energy, int speed, int magic

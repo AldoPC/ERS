@@ -7,8 +7,9 @@ import javafx.event.*;
 import javafx.scene.input.*;
 import javafx.geometry.*;
 
+import java.io.Serializable;
 
-public class ChooseCaracter extends Scene {
+public class ChooseCaracter extends Scene implements Serializable {
 	private Main main;
 	private VBox loadSc = new VBox();
 

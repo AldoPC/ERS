@@ -8,9 +8,9 @@ import javafx.geometry.*;
 import java.util.Scanner;
 import java.lang.Exception;
 
+import java.io.Serializable;
 
-
-public class BattleScene extends Scene {
+public class BattleScene extends Scene implements Serializable{
 	private Main main;
 	private MainGameScene scene;
 	private VBox all = new VBox();

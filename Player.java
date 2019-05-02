@@ -1,7 +1,8 @@
 import java.util.Scanner;
 import java.lang.Exception;
+import java.io.Serializable;
 
-public class Player implements CharacterInterface{
+public class Player implements CharacterInterface, Serializable{
 
 	public String name;
 	public int level;

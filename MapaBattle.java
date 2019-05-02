@@ -1,6 +1,7 @@
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
-public class MapaBattle extends VBox{
+import java.io.Serializable;
+public class MapaBattle extends VBox implements Serializable{
 	private Casilla[][] casillas;
 	private Main main;
 
