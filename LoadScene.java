@@ -60,9 +60,9 @@ public class LoadScene extends Scene implements Serializable{
 						m=(Mapa) ois.readObject();
 						main.returnToScene();
 					}catch(IOException ex){
-						ex.printStackTrace();
+						//ex.printStackTrace();
 					}catch(ClassNotFoundException ex){
-						ex.printStackTrace();
+						//ex.printStackTrace();
 					}
 			}
 
