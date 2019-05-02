@@ -8,9 +8,12 @@ import java.io.ObjectOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
 public class Mapa4 extends Mapa implements Serializable{
+	private Main main;
 	public Mapa4(Main main){
 		super(main,"Mapa 4", 20,15);
 		casillas[7][10].setEnemy(new AlexXDevil());
+		main.endGame();
+
 	}
 
 }
