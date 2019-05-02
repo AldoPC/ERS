@@ -139,7 +139,7 @@ public class BattleScene extends Scene implements Serializable{
 				you[y].attack(enemy[choosed]);
 				int damage= currHpEnemy - enemy[choosed].getHp();
 				if(currHpEnemy == 0){
-					scene.getMapa().getCasillas()[personaje1.getX()][personaje1.getY()].setEnemy(null);
+					//scene.getMapa().getCasillas()[personaje1.getX()][personaje1.getY()].setEnemy(null);
 					main.returnToScene();
 
 				}	
@@ -165,7 +165,7 @@ public class BattleScene extends Scene implements Serializable{
 			you[y].attack(enemy[choosed], 0);
 			int damage= currHpEnemy - enemy[choosed].getHp();
 			if(currHpEnemy == 0){
-					scene.getMapa().getCasillas()[personaje1.getX()][personaje1.getY()].setEnemy(null);
+					//scene.getMapa().getCasillas()[personaje1.getX()][personaje1.getY()].setEnemy(null);
 					main.returnToScene();
 
 				}	
@@ -195,7 +195,7 @@ public class BattleScene extends Scene implements Serializable{
 			int damage= currHpEnemy - enemy[choosed].getHp();
 			if(currHpEnemy == 0){
 					main.returnToScene();
-					scene.getMapa().getCasillas()[personaje1.getX()][personaje1.getY()].setEnemy(null);
+					//scene.getMapa().getCasillas()[personaje1.getX()][personaje1.getY()].setEnemy(null);
 
 				}	
 			terminalPrint(you[y].getName() +"s health has increased to " + you[y].getHp());
