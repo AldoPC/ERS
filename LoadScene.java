@@ -6,6 +6,15 @@ import javafx.event.*;
 import javafx.scene.input.*;
 import javafx.geometry.*;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.IOException;
+
+
+
 public class LoadScene extends Scene {
 	private Main main;
 	private GridPane root = new GridPane();
@@ -43,7 +52,15 @@ public class LoadScene extends Scene {
 		loadGame.setMinWidth(100);
 		loadGame.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent e){
-				//go to saved menu
+				try{
+						File selectedFile = new File("personaje.atm");
+						FileInputStream fin = new FileInputStream(selectedFile);
+						ObjectInputStream ois = new ObjectInputStream(fin);
+						//m=(Mapa) ois.readObject();
+						//imprimirAgenda();
+					}catch(IOException ex){
+						ex.printStackTrace();
+					}
 			}
 
 		});	

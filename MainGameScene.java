@@ -5,6 +5,13 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.event.*;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.IOException;
+
 public class MainGameScene extends Scene{
 
 	private Main main;
@@ -59,6 +66,14 @@ public class MainGameScene extends Scene{
                 	personajePrincipal.setY(0);
                 	m= m.getNextMap();
                 	gridPane.add(m,0,1);
+                    try{
+                        FileOutputStream fout = new FileOutputStream("personaje.atm");
+                        ObjectOutputStream oos = new ObjectOutputStream(fout);
+                        oos.writeObject(m);
+                        oos.close();
+                    }catch(IOException ex){
+
+                    }
                 }
                 m.pintarMapa();
             }
