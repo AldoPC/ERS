@@ -18,8 +18,11 @@ import java.io.Serializable;
 public class LoadScene extends Scene implements Serializable{
 	private Main main;
 	private Mapa m;
+	private Player personajePrincipal;
 	private GridPane root = new GridPane();
 	private VBox butt = new VBox();
+
+
 
 	public LoadScene(Main main){
 		super(new GridPane());
@@ -54,17 +57,22 @@ public class LoadScene extends Scene implements Serializable{
 		loadGame.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent e){
 				try{
-						File selectedFile = new File("personaje.atm");
+						File selectedFile = new File("Mapa.atm");
 						FileInputStream fin = new FileInputStream(selectedFile);
 						ObjectInputStream ois = new ObjectInputStream(fin);
-						m=(Mapa) ois.readObject();
+						setMPer((Player) ois.readObject()); 
 						main.returnToScene();
+						System.out.println("ok");
 					}catch(IOException ex){
-						//ex.printStackTrace();
+						ex.printStackTrace();
 					}catch(ClassNotFoundException ex){
-						//ex.printStackTrace();
+						ex.printStackTrace();
 					}
-			}
+
+					
+				}
+		
+
 
 		});	
 
@@ -79,6 +87,16 @@ public class LoadScene extends Scene implements Serializable{
 		butt.setAlignment(Pos.CENTER);
 
 		super.setRoot(root);
+	}
+
+	public Mapa returnMap(){
+		return m;
+	}
+	public void setMPer(Player personajePrincipal){
+		this.personajePrincipal = personajePrincipal;
+	}
+	public void setMain(Main main){
+		this.main = main;
 	}
 }
 

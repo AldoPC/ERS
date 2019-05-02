@@ -1,10 +1,20 @@
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.IOException;
+
 import java.io.Serializable;
 public class Mapa extends VBox implements Serializable{
 	public Casilla[][] casillas;
 	public Main main;
 
+	public Mapa(){
+
+	}
 	public Mapa(Main main,String titulo,int casillasX,int casillasY){
 		this.main=main;
 
@@ -44,8 +54,11 @@ public class Mapa extends VBox implements Serializable{
 	}
 
 	public Mapa getNextMap(){
+		
 		return new Mapa1(main);
+
 	}
+
 
 
 }

@@ -69,12 +69,12 @@ public class MainGameScene extends Scene implements Serializable{
                 	m= m.getNextMap();
                 	gridPane.add(m,0,1);
                     try{
-                        FileOutputStream fout = new FileOutputStream("personaje.atm");
+                        FileOutputStream fout = new FileOutputStream("Mapa.atm");
                         ObjectOutputStream oos = new ObjectOutputStream(fout);
-                        oos.writeObject(m);
+                        oos.writeObject(personajePrincipal);
                         oos.close();
                     }catch(IOException ex){
-
+                        ex.printStackTrace();
                     }
                 }
                 m.pintarMapa();

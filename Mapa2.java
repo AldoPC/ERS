@@ -1,5 +1,11 @@
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.IOException;
 import java.io.Serializable;
 public class Mapa2 extends Mapa implements Serializable{
 	public Mapa2(Main main){
@@ -8,6 +14,7 @@ public class Mapa2 extends Mapa implements Serializable{
 	}
 
 	public Mapa getNextMap(){
+		
 		return new Mapa3(main);
 	}
 

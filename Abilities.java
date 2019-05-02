@@ -1,4 +1,7 @@
-public class Abilities{
+
+import java.io.Serializable;
+
+public class Abilities implements Serializable{
 	private String name;
 	private int puntosEspeciales;
 	public Abilities(String name,int puntosEspeciales){
