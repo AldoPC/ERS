@@ -8,11 +8,19 @@ import java.io.ObjectOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
 public class Mapa3 extends Mapa implements Serializable{
+	private int valorDadoA = (int)Math.floor(Math.random()*18);	
+	private int valorDadoB = (int)Math.floor(Math.random()*12);;
+	private int valorDadoC = (int)Math.floor(Math.random()*18);	
+	private int valorDadoD = (int)Math.floor(Math.random()*12);;
+	private int valorDadoE = (int)Math.floor(Math.random()*18);	
+	private int valorDadoF = (int)Math.floor(Math.random()*12);;
+	private int valorDadoG = (int)Math.floor(Math.random()*18);	
+	private int valorDadoH = (int)Math.floor(Math.random()*12);;
 	public Mapa3(Main main){
 		super(main,"Mapa 3", 20,15);
-		casillas[9][9].setEnemy(new AlexXDevil());
-		casillas[4][2].setEnemy(new Joker());
-		casillas[17][13].setEnemy(new AlexXDevil());
+		casillas[valorDadoA][valorDadoB].setEnemy(new AlexXDevil());
+		casillas[valorDadoC][valorDadoD].setEnemy(new Joker());
+		casillas[valorDadoE][valorDadoF].setEnemy(new AlexXDevil());
 	}
 
 	public Mapa getNextMap(){  
