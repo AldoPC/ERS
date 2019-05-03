@@ -47,6 +47,7 @@ public class Casilla extends StackPane implements Serializable{
 	public void setEnemy(Enemy enemy){
 		this.enemy=enemy;
 	}
+	
 
 
 }
