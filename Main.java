@@ -9,7 +9,7 @@ public class Main extends Application implements Serializable{
 	private Scene loadScene = new LoadScene(this);
 	private ChooseCaracter choseCharacter;
 	private BattleScene battleScene;
-	private Scene mainGameScene;
+	private MainGameScene mainGameScene;
 	private Stage primaryStage;
 	private Player personajePrincipal;
 	private Enemy enemy;
@@ -51,6 +51,14 @@ public class Main extends Application implements Serializable{
 	public void setGameScene(){
 		mainGameScene = new MainGameScene(this);
 		primaryStage.setScene(mainGameScene);
+	}
+	public void setGameScene(int mapCount){
+		mainGameScene = new MainGameScene(this);
+		mainGameScene.setMapa(mapCount);
+		primaryStage.setScene(mainGameScene);
+	}
+	public MainGameScene getGameScene(){
+		return mainGameScene;
 	}
 	public void returnToScene(){
 		primaryStage.setScene(mainGameScene);

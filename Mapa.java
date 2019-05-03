@@ -52,9 +52,10 @@ public class Mapa extends VBox implements Serializable{
 			}
 		}
 	}
+	
 
 	public Mapa getNextMap(){
-		
+		pintarMapa();
 		return new Mapa1(main);
 
 	}

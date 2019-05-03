@@ -18,10 +18,11 @@ public class MainGameScene extends Scene implements Serializable{
 
 	private Main main;
 	private Mapa m;
+    private GridPane gridPane;
 	public MainGameScene(Main main){
 		super(new GridPane());
 		this.main=main;
-		GridPane gridPane=(GridPane)super.getRoot();
+		gridPane=(GridPane)super.getRoot();
         gridPane.setStyle("-fx-background-image:url('img/red.gif'); -fx-background-size: cover; -fx-background-position: top ;");
 		//gridPane.add(new Label(main.getPlayer().getName()),0,0);
 		//640px X 480px
@@ -63,19 +64,21 @@ public class MainGameScene extends Scene implements Serializable{
                 m.getCasillas()[personajePrincipal.getX()][personajePrincipal.getY()].setPersonajePrincipal(personajePrincipal);
 
                 if(personajePrincipal.getX()==m.getCasillas().length-1&&personajePrincipal.getY()==m.getCasillas()[0].length-1){
-                	gridPane.getChildren().remove(m);
-                	personajePrincipal.setX(0);
-                	personajePrincipal.setY(0);
-                	m= m.getNextMap();
-                	gridPane.add(m,0,1);
                     try{
                         FileOutputStream fout = new FileOutputStream("Mapa.atm");
                         ObjectOutputStream oos = new ObjectOutputStream(fout);
                         oos.writeObject(personajePrincipal);
                         oos.close();
+                        System.out.println("Player Saved");
                     }catch(IOException ex){
                         ex.printStackTrace();
                     }
+                	gridPane.getChildren().remove(m);
+                	personajePrincipal.setX(0);
+                	personajePrincipal.setY(0);
+                	m= m.getNextMap();
+                	gridPane.add(m,0,1);
+                    personajePrincipal.nextMap();
                 }
                 m.pintarMapa();
             }
@@ -85,6 +88,16 @@ public class MainGameScene extends Scene implements Serializable{
     public Mapa getMapa(){
         return m;
     }
+    public void setMapa(int mapCount){
+        switch(mapCount){
+            case 1: m = new Mapa1(main);
+                break;
+            case 2: m = new Mapa2(main);
+                break;         
+            case 3: m = new Mapa3(main);
+                break;     
+        }
+    }
     private void checarCasilla(Casilla casilla){
 
 				if(casilla.getEnemy()!=null){
@@ -92,6 +105,15 @@ public class MainGameScene extends Scene implements Serializable{
         }
 
 
+    }
+    public GridPane getGridPane(){
+        return gridPane;
+    }
+    public void setNewMap(Mapa newm){
+        try{    
+        m.pintarMapa();
+        System.out.println("setNew in MainGameScene");
+        }catch(Exception e){}
     }
 
 }

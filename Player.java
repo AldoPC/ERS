@@ -14,13 +14,15 @@ public class Player implements CharacterInterface, Serializable{
 	public int magic;
 	public int x;
 	public int y;
+	public int mapCount;
 	public Abilities[] abilities;
 	public static Objects[] inventory;
 
 
+
 	public Player(String name, int level, int hp, int attack,int defense,
                    int energy, int speed, int magic){
-
+		mapCount = 1;
 		this.name=name;
 		this.level=level;
 		this.hp=hp;
@@ -97,6 +99,12 @@ public class Player implements CharacterInterface, Serializable{
 
   public boolean isAlive() {
     return hp > 0;
+  }
+  public int getMapCount(){
+  	return mapCount; 
+  }
+  public void nextMap(){
+  	mapCount++;
   }
 
   //String name, int level, int hp, int attack,int defense,int energy, int speed, int magic

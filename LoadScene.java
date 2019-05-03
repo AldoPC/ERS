@@ -60,9 +60,18 @@ public class LoadScene extends Scene implements Serializable{
 						File selectedFile = new File("Mapa.atm");
 						FileInputStream fin = new FileInputStream(selectedFile);
 						ObjectInputStream ois = new ObjectInputStream(fin);
-						setMPer((Player) ois.readObject()); 
-						main.setGameScene();
-						System.out.println("ok");
+						setMPer((Player) ois.readObject());
+						//personajePrincipal= main.getPlayer(); 
+	                	personajePrincipal.setX(0);
+	                	personajePrincipal.setY(0);
+						//m.getCasillas()[personajePrincipal.getX()][personajePrincipal.getY()].setPersonajePrincipal(main.getPersonajePrincipal());
+	                	//m= m.getNextMap();
+	                    //personajePrincipal.nextMap();
+	                 	
+						main.setPlayer(personajePrincipal);
+						main.setGameScene(personajePrincipal.getMapCount());
+	                	main.getGameScene().setNewMap(m);
+						System.out.println("Load Game");
 					}catch(IOException ex){
 						ex.printStackTrace();
 					}catch(ClassNotFoundException ex){
