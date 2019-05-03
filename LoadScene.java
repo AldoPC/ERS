@@ -62,12 +62,12 @@ public class LoadScene extends Scene implements Serializable{
 						ObjectInputStream ois = new ObjectInputStream(fin);
 						setMPer((Player) ois.readObject());
 						//personajePrincipal= main.getPlayer(); 
+						//m.getCasillas()[personajePrincipal.getX()][personajePrincipal.getY()].setPersonajePrincipal(null);
 	                	personajePrincipal.setX(0);
 	                	personajePrincipal.setY(0);
-						//m.getCasillas()[personajePrincipal.getX()][personajePrincipal.getY()].setPersonajePrincipal(main.getPersonajePrincipal());
 	                	//m= m.getNextMap();
 	                    //personajePrincipal.nextMap();
-	                 	
+	                 
 						main.setPlayer(personajePrincipal);
 						main.setGameScene(personajePrincipal.getMapCount());
 	                	main.getGameScene().setNewMap(m);
