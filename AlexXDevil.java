@@ -1,8 +1,9 @@
 public class AlexXDevil extends Enemy{
 
     public AlexXDevil(){
-        //  String name, int level, int hp, int attack, int defense, int energy, int speed, int magic
-        super("AlexXDevil",  1,         50,     5,          2,           20,         100,       10);
+
+        //  String name, int level, int hp, int attack, int defense, int energy, int speed, int magic, String sprite
+        super("AlexXDevil",  1,         50,     5,          2,           20,         100,       10, "img/AlexXDevilD.gif");
         Abilities[] abilities= new Abilities[3];
         abilities[0]= new Abilities("Sand_Wave",20);
         abilities[1]= new Abilities("Runnung in the 90s",10);

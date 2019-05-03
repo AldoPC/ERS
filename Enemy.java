@@ -12,9 +12,10 @@ public class Enemy implements Serializable {
     public int speed;
     public int magic;
     public Abilities[] abilities;
+    public String sprite;
 
     public Enemy(String name, int level, int hp, int attack,int defense,
-                  int energy, int speed, int magic){
+                  int energy, int speed, int magic, String sprite){
 
         this.name=name;
         this.level=level;
@@ -24,6 +25,7 @@ public class Enemy implements Serializable {
         this.energy=energy;
         this.speed=speed;
         this.magic=magic;
+        this.sprite=sprite;
     }
 
     public void setName(String name){
@@ -92,6 +94,14 @@ public class Enemy implements Serializable {
 
     public boolean isAlive() {
         return hp > 0;
+    }
+
+    public void setSprite(String sprite){
+      this.sprite=sprite;
+    }
+
+    public String getSprite(){
+      return sprite;
     }
 
     //String name, int level, int hp, int attack,int defense,int energy, int speed, int magic

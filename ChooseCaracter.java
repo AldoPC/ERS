@@ -23,39 +23,42 @@ public class ChooseCaracter extends Scene implements Serializable {
 		character.getStylesheets().add("styles.css");
 
 		Button marea = new Button();
-		marea.setStyle("-fx-background-image:url('img/Marea1.png');");
+		marea.setStyle("-fx-background-image:url('img/Marea2.png');");
 		marea.getStyleClass().add("mareaBut");
 		marea.setMinHeight(350);
 		marea.setMinWidth(170);
 		marea.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent e){
 				Player mar= new Marea();
+				mar.setSprite("img/MareaD.gif");
 				main.setPlayer(mar);
 				main.setGameScene();
 			}
 		});
 
 		Button dps = new Button();
-		dps.setStyle("-fx-background-image:url('img/Marea2.png');");
+		dps.setStyle("-fx-background-image:url('img/Marea3.png');");
 		dps.getStyleClass().add("mareaBut");
 		dps.setMinHeight(350);
 		dps.setMinWidth(170);
 		dps.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent e){
 				Player dp= new Obunga();
+				dp.setSprite("img/ObungaD.gif");
 				main.setPlayer(dp);
 				main.setGameScene();
 			}
 		});
 
 		Button coco= new Button();
-		coco.setStyle("-fx-background-image:url('img/Marea3.png');");
+		coco.setStyle("-fx-background-image:url('img/Marea1.png');");
 		coco.getStyleClass().add("mareaBut");
 		coco.setMinHeight(350);
 		coco.setMinWidth(170);
 		coco.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent e){
 				Player cb= new Cocorean();
+				cb.setSprite("img/CocoreanD.gif");
 				main.setPlayer(cb);
 				main.setGameScene();
 			}

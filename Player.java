@@ -17,6 +17,7 @@ public class Player implements CharacterInterface, Serializable{
 	public int mapCount;
 	public Abilities[] abilities;
 	public static Objects[] inventory;
+	public String sprite;
 
 
 
@@ -28,9 +29,9 @@ public class Player implements CharacterInterface, Serializable{
 		this.hp=hp;
 		this.attack=attack;
 		this.defense=defense;
-    	this.energy=energy;
-    	this.speed=speed;
-    	this.magic=magic;
+    this.energy=energy;
+    this.speed=speed;
+    this.magic=magic;
 	}
 
 	public void setName(String name){
@@ -97,11 +98,19 @@ public class Player implements CharacterInterface, Serializable{
     return magic;
   }
 
+	public void setSprite(String sprite){
+    this.sprite=sprite;
+  }
+
+  public String getSprite(){
+    return sprite;
+  }
+
   public boolean isAlive() {
     return hp > 0;
   }
   public int getMapCount(){
-  	return mapCount; 
+  	return mapCount;
   }
   public void nextMap(){
   	mapCount++;

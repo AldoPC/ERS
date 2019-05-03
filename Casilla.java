@@ -26,7 +26,7 @@ public class Casilla extends StackPane implements Serializable{
 			}
 
 		}else{
-			imgPer = new Image(getClass().getResourceAsStream("img/JokerD.gif"));
+			imgPer = new Image(getClass().getResourceAsStream(personajePrincipal.getSprite()));
 			label.setGraphic(new ImageView(imgPer));
 		}
 	}
@@ -47,7 +47,7 @@ public class Casilla extends StackPane implements Serializable{
 	public void setEnemy(Enemy enemy){
 		this.enemy=enemy;
 	}
-	
+
 
 
 }
