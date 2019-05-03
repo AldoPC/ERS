@@ -23,7 +23,7 @@ public class MainGameScene extends Scene implements Serializable{
 		super(new GridPane());
 		this.main=main;
 		gridPane=(GridPane)super.getRoot();
-        gridPane.setStyle("-fx-background-image:url('img/blueImg.jpg'); -fx-background-size: cover; -fx-background-position: top ;");
+    gridPane.setStyle("-fx-background-image:url('img/blueImg.jpg'); -fx-background-size: cover; -fx-background-position: top ;");
 		//gridPane.add(new Label(main.getPlayer().getName()),0,0);
 		//640px X 480px
 		m= new Mapa(main,"Mapa 0", 20,15);
@@ -94,15 +94,16 @@ public class MainGameScene extends Scene implements Serializable{
             case 1: m = new Mapa1(main);
                 break;
             case 2: m = new Mapa2(main);
-                break;         
+                break;
             case 3: m = new Mapa3(main);
-                break;     
+                break;
         }
          gridPane.add(m, 0, 1);
     }
     private void checarCasilla(Casilla casilla){
 
 				if(casilla.getEnemy()!=null){
+						main.setEnemy(casilla.getEnemy());
             main.setBattleScene();
         }
 
@@ -112,7 +113,7 @@ public class MainGameScene extends Scene implements Serializable{
         return gridPane;
     }
     public void setNewMap(Mapa newm){
-        try{    
+        try{
         m.pintarMapa();
         System.out.println("setNew in MainGameScene");
         }catch(Exception e){}

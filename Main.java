@@ -5,7 +5,7 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import java.io.Serializable;
 
-public class Main extends Application implements Serializable{ 
+public class Main extends Application implements Serializable{
 	private Scene loadScene = new LoadScene(this);
 	private ChooseCaracter choseCharacter;
 	private BattleScene battleScene;
@@ -73,6 +73,10 @@ public class Main extends Application implements Serializable{
 
 	public void setEnemy(Enemy enemy){
 		this.enemy=enemy;
+	}
+
+	public Enemy getEnemy(){
+		return enemy;
 	}
 
 	public Player getPersonajePrincipal(){

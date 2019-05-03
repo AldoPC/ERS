@@ -31,9 +31,9 @@ public class BattleScene extends Scene implements Serializable{
 
   	private int answer;
 
-  	private Enemy personaje2;
+  private Enemy personaje2;
 	private Player personaje1;
-	
+
 
 
   	private Battle bs = new Battle();
@@ -143,7 +143,7 @@ public class BattleScene extends Scene implements Serializable{
 					main.getGameScene().getMapa().getCasillas()[personajePrincipal.getX()][personajePrincipal.getY()].setEnemy(null);
 					main.returnToScene();
 
-				}	
+				}
 				terminalPrint(you[y].getName() + "'s attack does " + damage + " damage!");
 				terminalPrint(enemy[choosed].getName() + "'s Health:"+ enemy[choosed].getHp());
 
@@ -153,7 +153,7 @@ public class BattleScene extends Scene implements Serializable{
 				if(currHpYou == 0){
 					main.endGame();
 					//casillas[7][4].setEnemy(null);
-				}	
+				}
 				terminalPrint(enemy[choosed].getName() + "'s attack does " + damage + " damage!");
 				terminalPrint(you[y].getName() + "'s Health:"+ you[y].getHp());
 
@@ -161,14 +161,14 @@ public class BattleScene extends Scene implements Serializable{
 		});
 		abilities.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent e){
-			Player personajePrincipal= main.getPersonajePrincipal();	
+			Player personajePrincipal= main.getPersonajePrincipal();
 			int currHpEnemy= enemy[choosed].getHp();
 			you[y].attack(enemy[choosed], 0);
 			int damage= currHpEnemy - enemy[choosed].getHp();
 			if(currHpEnemy == 0){
 					main.getGameScene().getMapa().getCasillas()[personajePrincipal.getX()][personajePrincipal.getY()].setEnemy(null);
 					main.returnToScene();
-				}	
+				}
 			terminalPrint(you[y].getName()+" used "+you[y].abilities[0].getName());
 			terminalPrint(you[y].getName() + "'s attack does " + damage + " damage!");
 			terminalPrint(enemy[choosed].getName() + "'s Health:"+ enemy[choosed].getHp());
@@ -179,7 +179,7 @@ public class BattleScene extends Scene implements Serializable{
 			if(currHpYou == 0){
 					main.endGame();
 					//casillas[7][4].setEnemy(null);
-				}	
+				}
 			terminalPrint(enemy[choosed].getName() + "'s attack does " + damage + " damage!");
 			terminalPrint(you[y].getName() + "'s Health:"+ you[y].getHp());
 
@@ -187,7 +187,7 @@ public class BattleScene extends Scene implements Serializable{
 		});
 		item.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent e){
-			Player personajePrincipal= main.getPersonajePrincipal();	
+			Player personajePrincipal= main.getPersonajePrincipal();
 			int currHpEnemy= enemy[choosed].getHp();
 			you[y].usePotion(you, 0);
 			int damage= currHpEnemy - enemy[choosed].getHp();
@@ -195,7 +195,7 @@ public class BattleScene extends Scene implements Serializable{
 					main.getGameScene().getMapa().getCasillas()[personajePrincipal.getX()][personajePrincipal.getY()].setEnemy(null);
 					main.returnToScene();
 
-				}	
+				}
 			terminalPrint(you[y].getName() +"s health has increased to " + you[y].getHp());
 
 			int currHpYou= you[y].getHp();
@@ -204,7 +204,7 @@ public class BattleScene extends Scene implements Serializable{
 			if(currHpYou == 0){
 					main.endGame();
 					//casillas[7][4].setEnemy(null);
-				}	
+				}
 			terminalPrint(enemy[choosed].getName() + "'s attack does " + damage + " damage!");
 			terminalPrint(you[y].getName() + "'s Health:"+ you[y].getHp());
 
