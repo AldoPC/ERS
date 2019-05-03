@@ -12,6 +12,7 @@ public class Mapa3 extends Mapa implements Serializable{
 		super(main,"Mapa 3", 20,15);
 		casillas[9][9].setEnemy(new AlexXDevil());
 		casillas[4][2].setEnemy(new Joker());
+		casillas[17][13].setEnemy(new AlexXDevil());
 	}
 
 	public Mapa getNextMap(){  

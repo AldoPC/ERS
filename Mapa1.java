@@ -13,6 +13,7 @@ public class Mapa1 extends Mapa implements Serializable{
 		casillas[0][0].setPersonajePrincipal(main.getPersonajePrincipal());
 		casillas[7][4].setEnemy(new AlexXDevil());
 		casillas[3][2].setEnemy(new Raidriar());
+		casillas[13][9].setEnemy(new Raidriar());
 	}
 
 	public Mapa getNextMap(){

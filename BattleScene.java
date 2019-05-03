@@ -41,7 +41,7 @@ public class BattleScene extends Scene implements Serializable{
 		private Button attack = new Button("Attack");
 		private Button abilities = new Button("Abilities");
 		private Button item = new Button("item");
-		private Button move = new Button("Move");
+		//private Button move = new Button("Move");
 
 		private Player[] yourParty= new Player[3];
 		private Enemy[] enemyParty= new Enemy[3];
@@ -50,7 +50,7 @@ public class BattleScene extends Scene implements Serializable{
 		super(new GridPane());
 		this.main=main;
 
-		batlleButtons.getChildren().addAll(attack, abilities, item, move);
+		batlleButtons.getChildren().addAll(attack, abilities, item);
 		console1 = new Label(" 1");
 		console1.setText(" 1");
 		console2 = new Label(" 2");
@@ -146,7 +146,7 @@ public class BattleScene extends Scene implements Serializable{
 				}	
 				terminalPrint(you[y].getName() + "'s attack does " + damage + " damage!");
 				terminalPrint(enemy[choosed].getName() + "'s Health:"+ enemy[choosed].getHp());
-				
+
 				int currHpYou= you[y].getHp();
 				enemy[choosed].attack(you);
 				damage= currHpYou - you[y].getHp();
