@@ -23,8 +23,8 @@ public class MapaBattle extends VBox implements Serializable{
 		}
 		getChildren().add(label);
 		getChildren().add(grid);
-		casillas[0][0].setPersonajePrincipal(main.getPersonajePrincipal());
-		casillas[5][0].setEnemy(new AlexXDevil());
+		casillas[1][1].setPersonajePrincipal(main.getPersonajePrincipal());
+		casillas[5][1].setEnemy(main.getEnemy());
 		pintarMapa();
 	}
 
