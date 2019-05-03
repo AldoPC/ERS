@@ -17,7 +17,7 @@ public class Casilla extends StackPane implements Serializable{
 		if(personajePrincipal==null){
 			if(enemy!=null){
 				//label.setText(enemy.getName());
-				imgPer = new Image(getClass().getResourceAsStream("img/Rock.png"));
+				imgPer = new Image(getClass().getResourceAsStream("img/AlexXDevilD.gif"));
 				label.setGraphic(new ImageView(imgPer));
 			}else{
 				label.setMinWidth(32);
@@ -26,7 +26,7 @@ public class Casilla extends StackPane implements Serializable{
 			}
 
 		}else{
-			imgPer = new Image(getClass().getResourceAsStream("img/Mareasprite.png"));
+			imgPer = new Image(getClass().getResourceAsStream("img/JokerD.gif"));
 			label.setGraphic(new ImageView(imgPer));
 		}
 	}
